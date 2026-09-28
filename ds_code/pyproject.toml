@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "smart-taxi-porto"
+version = "0.1.0"
+description = "Taxi behavior modeling and route optimization for smart city research competitions"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{name = "The100edu Modeling Project"}]
+dependencies = []
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.scripts]
+smart-taxi = "smart_taxi.cli:main"

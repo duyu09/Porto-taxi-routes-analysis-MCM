@@ -1,0 +1,119 @@
+project:
+  name: smart_taxi_porto
+  random_state: 42
+
+paths:
+  raw_data: data/raw/train.csv
+  output_root: outputs
+
+data:
+  # 用户约定：CSV 默认无表头。Porto 原始带表头数据会被自动识别并兼容。
+  has_header: true
+  auto_drop_header_row: true
+  sep: ","
+  sample_n: null
+  chunk_size: null
+  column_names:
+    - TRIP_ID
+    - CALL_TYPE
+    - ORIGIN_CALL
+    - ORIGIN_STAND
+    - TAXI_ID
+    - TIMESTAMP
+    - DAY_TYPE
+    - MISSING_DATA
+    - POLYLINE
+  timezone: Europe/Lisbon
+  gps_interval_seconds: 15
+  min_points: 2
+  max_duration_seconds: 10800
+  min_distance_m: 50
+  max_speed_kmh: 160
+
+features:
+  grid_size_m: 500
+  peak_hours: [7, 8, 9, 17, 18, 19]
+  night_hours: [0, 1, 2, 3, 4, 5, 22, 23]
+  long_trip_quantile: 0.8
+  turn_angle_threshold_deg: 35
+  categorical_columns:
+    - CALL_TYPE
+    - DAY_TYPE
+    - start_grid
+    - end_grid
+    - time_slot
+    - peak_hour
+    - is_weekend
+    - day_night
+  numeric_columns:
+    - hour
+    - weekday
+    - duration_sec
+    - distance_m
+    - avg_speed_kmh
+    - straight_distance_m
+    - detour_ratio
+    - bearing_deg
+    - turn_count
+    - path_entropy
+    - od_frequency
+    - start_hotness
+    - end_hotness
+  label_mode: call_type  # call_type 或 rule_based
+  target_column: target_mode
+
+model:
+  test_size: 0.2
+  validation_size: 0.1
+  n_estimators: 350
+  max_depth: 6
+  learning_rate: 0.05
+  subsample: 0.85
+  colsample_bytree: 0.85
+  objective: multi:softprob
+  eval_metric: mlogloss
+  n_jobs: -1
+
+shap:
+  sample_size: 2000
+  max_display: 25
+
+od:
+  top_k_pairs: 50
+
+network:
+  place: Porto, Portugal
+  network_type: drive
+  simplify: true
+  retain_all: false
+  default_speed_kph: 35
+  default_travel_time_sec_per_m: 0.102857
+  map_match_sample_points: 3
+  map_match_parallel_jobs: null
+  map_match_query_batch_size: 20000
+
+cost:
+  epsilon: 1.0e-6
+  passenger:
+    alpha_distance: 0.30
+    beta_time: 0.45
+    gamma_road_penalty: 0.10
+    delta_risk: 0.15
+    lambda_congestion: 0.55
+    lambda_pickup_gap: 0.05
+    smoothness_penalty: 0.03
+  driver:
+    omega_pickup: 0.55
+    omega_time: 0.25
+    omega_congestion: 0.10
+    omega_empty: 0.10
+    distance_floor: 0.05
+
+experiments:
+  baselines:
+    - shortest_distance
+    - shortest_time
+    - congestion_only
+    - pickup_only
+    - composite_passenger
+    - composite_driver
