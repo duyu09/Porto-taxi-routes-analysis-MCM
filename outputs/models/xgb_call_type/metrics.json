@@ -1,0 +1,70 @@
+{
+  "n_samples": 167043,
+  "n_train": 133634,
+  "n_test": 33409,
+  "classes": [
+    "A",
+    "B",
+    "C"
+  ],
+  "categorical_columns": [
+    "DAY_TYPE",
+    "start_grid",
+    "end_grid",
+    "time_slot",
+    "peak_hour",
+    "is_weekend",
+    "day_night"
+  ],
+  "numeric_columns": [
+    "hour",
+    "weekday",
+    "duration_sec",
+    "distance_m",
+    "avg_speed_kmh",
+    "straight_distance_m",
+    "detour_ratio",
+    "bearing_deg",
+    "turn_count",
+    "path_entropy"
+  ],
+  "target_column": "target_mode",
+  "accuracy": 0.716244125834356,
+  "macro_f1": 0.6602946333827259,
+  "macro_precision": 0.6937475003535886,
+  "macro_recall": 0.6506341380112798,
+  "classification_report": {
+    "A": {
+      "precision": 0.6649818354130469,
+      "recall": 0.5985214671595109,
+      "f1-score": 0.6300037411148522,
+      "support": 7034.0
+    },
+    "B": {
+      "precision": 0.7444037830901573,
+      "recall": 0.9168764268571095,
+      "f1-score": 0.8216871262197041,
+      "support": 17083.0
+    },
+    "C": {
+      "precision": 0.6718568825575617,
+      "recall": 0.4365045200172191,
+      "f1-score": 0.5291930328136213,
+      "support": 9292.0
+    },
+    "accuracy": 0.716244125834356,
+    "macro avg": {
+      "precision": 0.6937475003535886,
+      "recall": 0.6506341380112798,
+      "f1-score": 0.6602946333827259,
+      "support": 33409.0
+    },
+    "weighted avg": {
+      "precision": 0.7075047505028403,
+      "recall": 0.716244125834356,
+      "f1-score": 0.6999787228925511,
+      "support": 33409.0
+    }
+  },
+  "auc_ovr": 0.835519576241174
+}

@@ -1,0 +1,11 @@
+{
+  "profile": "driver",
+  "time_slot": "morning_peak",
+  "origin_node": "12241567151",
+  "dest_node": "473859170",
+  "n_nodes": 28,
+  "total_smart_cost": 110.34446433857221,
+  "total_length_m": 3059.828599897863,
+  "total_freeflow_time_sec": 242.619147512473,
+  "route_geojson": "outputs/routes/driver_route.geojson"
+}

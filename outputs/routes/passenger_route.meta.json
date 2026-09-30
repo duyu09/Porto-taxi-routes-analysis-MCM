@@ -1,0 +1,11 @@
+{
+  "profile": "passenger",
+  "time_slot": "morning_peak",
+  "origin_node": "12241567151",
+  "dest_node": "473859170",
+  "n_nodes": 33,
+  "total_smart_cost": 100.16632457446995,
+  "total_length_m": 2789.2490222724095,
+  "total_freeflow_time_sec": 216.37735400788813,
+  "route_geojson": "outputs/routes/passenger_route.geojson"
+}
