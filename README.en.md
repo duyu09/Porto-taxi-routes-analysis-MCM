@@ -142,7 +142,9 @@ Roads with higher demand may justify a certain amount of additional travel cost,
 
 Representing the road network as a graph, let $\mathcal{P}(o,d)$ denote the set of feasible paths from origin $o$ to destination $d$, and let $C_{e,p}^{(r)}$ and $C_{e,d}^{(r)}$ denote the road costs from the passenger and driver perspectives, respectively. The two route-planning problems can then be expressed uniformly as:
 
-$$P_p^*=\arg\min_{P\in\mathcal{P}(o,d)}\sum_{e\in P}C_{e,p}^{(r)},\qquad P_d^*=\arg\min_{P\in\mathcal{P}(o,d)}\sum_{e\in P}C_{e,d}^{(r)}.$$
+$$P_p^*=\arg\min_{P\in\mathcal{P}(o,d)}\sum_{e\in P}C_{e,p}^{(r)},$$
+
+$$\qquad P_d^*=\arg\min_{P\in\mathcal{P}(o,d)}\sum_{e\in P}C_{e,d}^{(r)}.$$
 
 The two perspectives use the same road network but evaluate the value of each road differently, and may therefore select different routes. Since their objective functions differ, the aggregate cost values under the two perspectives should not be directly compared to determine superiority.
 
