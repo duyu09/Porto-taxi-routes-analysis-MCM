@@ -142,7 +142,9 @@ Những tuyến đường có nhu cầu cao hơn có thể đáng để chấp n
 
 Biểu diễn mạng lưới đường bộ dưới dạng đồ thị, gọi $\mathcal{P}(o,d)$ là tập hợp các lộ trình khả thi từ điểm xuất phát $o$ đến điểm đích $d$, còn $C_{e,p}^{(r)}$ và $C_{e,d}^{(r)}$ lần lượt là chi phí của đường $e$ dưới góc nhìn hành khách và tài xế. Khi đó, hai bài toán lập kế hoạch lộ trình có thể được biểu diễn thống nhất như sau:
 
-$$P_p^*=\arg\min_{P\in\mathcal{P}(o,d)}\sum_{e\in P}C_{e,p}^{(r)},\qquad P_d^*=\arg\min_{P\in\mathcal{P}(o,d)}\sum_{e\in P}C_{e,d}^{(r)}.$$
+$$P_p^*=\arg\min_{P\in\mathcal{P}(o,d)}\sum_{e\in P}C_{e,p}^{(r)},$$
+
+$$\qquad P_d^*=\arg\min_{P\in\mathcal{P}(o,d)}\sum_{e\in P}C_{e,d}^{(r)}.$$
 
 Hai góc nhìn sử dụng cùng một mạng lưới đường bộ nhưng đánh giá giá trị của từng đoạn đường theo cách khác nhau, vì vậy có thể lựa chọn các lộ trình khác nhau. Do hàm mục tiêu của hai bài toán khác nhau, các giá trị chi phí tổng hợp không nên được so sánh trực tiếp để xác định lộ trình nào tốt hơn.
 
